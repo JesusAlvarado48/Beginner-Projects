@@ -1,26 +1,23 @@
-from random import randint
+from random import choice
 
-responses = ["Yes", "No", "Probably", "Maybe", "I don't think so", "Perhaps",
-             "It's possible", "Yes, I think so"]
+responses = [
+    "Yes", "No", "Probably", "Maybe", "I don't think so",
+    "Perhaps", "It's possible", "Yes, I think so"
+]
 
-print("Welcome to the Magic 8 ball!")
+print("Welcome to the Magic 8 Ball!")
 
 while True:
     question = input("Ask me a question: ")
-    print responses[randint(0, 7)]
+    print(choice(responses))
 
-    while True:
-        play = input("Would you like to play again? (Y/N) ")
-        print ""
+    play = input("Would you like to play again? (Y/N) ").strip().lower()
+    print()
 
-        if play == "Y" or play == "y":
-            continue
-
-        elif play == "N" or play == "n":
-            print("Goodbye!")
-            break
-
-        else:
-            print("I didn't quite catch that.")
-
-    break
+    if play == "y":
+        continue
+    elif play == "n":
+        print("Goodbye!")
+        break
+    else:
+        print("I didn't quite catch that.")
